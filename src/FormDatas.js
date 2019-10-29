@@ -1,6 +1,9 @@
 import React from "react";
 import axios from 'axios';
+import FetchDatas from './FetchDatas.js';
 import {
+  MDBRow,
+  MDBCol,
   MDBCard,
   MDBCardBody,
   MDBIcon,
@@ -31,6 +34,12 @@ class FormDatas extends React.Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        this.setState({
+          name: res.data.name,
+          gender: res.data.gender,
+          count: res.data.count,
+          probability: res.data.probability
+        })
       })
       .catch(function (error) {
         // handle error
@@ -44,39 +53,48 @@ class FormDatas extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-      <MDBCard>
-        <MDBCardBody>
-          <MDBCardHeader className="form-header deep-blue-gradient rounded">
-            <h3 className="my-3 text-center">
-              <MDBIcon icon="user" /> Check Gender
-            </h3>
-          </MDBCardHeader>
-            <div className="grey-text">
-              <MDBInput
-                label="Enter Any Name"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-            </div>
+      <MDBRow>
+        <MDBCol size="12" sm="6" lg="6">
+          <form onSubmit={this.handleSubmit}>
+          <MDBCard>
+            <MDBCardBody>
+              <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                <h3 className="my-3 text-center">
+                  <MDBIcon icon="user" /> Check Gender
+                </h3>
+              </MDBCardHeader>
+                <div className="grey-text">
+                  <MDBInput
+                    label="Enter Any Name"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    required
+                  />
+                </div>
 
-          <div className="text-center mt-4">
-            <MDBBtn
-              color="light-blue"
-              className="mb-3"
-              type="submit"
-            >
-              Check
-            </MDBBtn>
-          </div>
-        </MDBCardBody>
-      </MDBCard>
-      </form>
+              <div className="text-center mt-4">
+                <MDBBtn
+                  color="light-blue"
+                  className="mb-3"
+                  type="submit"
+                >
+                  Check
+                </MDBBtn>
+              </div>
+            </MDBCardBody>
+          </MDBCard>
+          </form>
+        </MDBCol>
+        <MDBCol size="12" sm="6" lg="6">
+          <FetchDatas name={this.state.name} gender={this.state.gender} count={this.state.count} probability={this.state.probability} />
+        </MDBCol>
+      </MDBRow>
+
     );
   }
 }
