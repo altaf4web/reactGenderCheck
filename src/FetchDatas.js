@@ -23,7 +23,7 @@ class FetchDatas extends React.Component {
             <li className="list-group-item">Probability: {this.props.probability}</li>
           </ul>
           <div className="text-center mt-4">
-            <h1>{this.props.name} is <span className="badge badge-primary">{this.props.gender}</span></h1>.
+            <h1><span className="badge badge-primary">{this.props.gender}</span></h1>
           </div>
           </MDBCardBody>
           </MDBCard>
