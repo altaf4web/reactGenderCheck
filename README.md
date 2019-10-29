@@ -1,9 +1,8 @@
-# reactGenderCheck
-# React Loan Calculator
+# React Gender Check
 
 Gender Check made with React with MDB.
 
-### Live here: 
+### Live here:
 
 ## Screenshot:
 
