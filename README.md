@@ -10,7 +10,7 @@ Gender Check made with React with MDB.
 
 ## Features
 
-- The name should be proper name
+- you can check your gender by your name.
 - The following API is used - `https://api.genderize.io/?name=<anyName>`<br/>
   This returns a JSON object with information about the person name, gender, count & Probability.
 
